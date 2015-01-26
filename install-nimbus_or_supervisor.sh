@@ -21,13 +21,3 @@ tar -zxvf apache-storm-0.9.3.tar.gz
 wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 sudo easy_install supervisor
 echo_supervisord_conf > supervisord.conf
-
-#configure master under supervisor
-echo '[program:storm-nimbus]' >> supervisord.conf
-echo "command=./apache-storm-0.9.3/bin/storm nimbus" >> supervisord.conf
-echo 'autorestart=true' >> supervisord.conf
-echo 'autostart=true' >> supervisord.conf
-echo '[program:master-ui]' >> supervisord.conf
-echo "command=./apache-storm-0.9.3/bin/storm ui" >> supervisord.conf
-echo 'autorestart=true' >> supervisord.conf
-echo 'autostart=true' >> supervisord.conf
