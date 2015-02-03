@@ -5,12 +5,12 @@ sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get update
 echo 'debconf shared/accepted-oracle-license-v1-1 select true' | /usr/bin/debconf-set-selections
 echo 'debconf shared/accepted-oracle-license-v1-1 seen true' | /usr/bin/debconf-set-selections
-sudo apt-get install -y oracle-java6-installer
+sudo apt-get install -y -q oracle-java6-installer
 export JAVA_HOME=/usr/lib/jvm/java-6-oracle/jre
 
 #install zookeeper
 wget http://apache.claz.org/zookeeper/stable/zookeeper-3.4.6.tar.gz
-tar -zxvf zookeeper-3.4.6.tar.gz
+tar -zxf zookeeper-3.4.6.tar.gz
 touch zookeeper-3.4.6/conf/zoo.cfg
 echo 'tickTime=2000' >> zookeeper-3.4.6/conf/zoo.cfg
 echo 'dataDir=/var/zookeeper' >> zookeeper-3.4.6/conf/zoo.cfg
